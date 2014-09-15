@@ -1,0 +1,16 @@
+<div class="alert alert-info">This is my account info page. Only I have permissions to view this page.</div>
+
+<hr>
+
+<?php
+
+	$users = new Application_Model_Users();
+	$me = $users->select()->where("email = ?", Zend_Auth::getInstance()->getIdentity()->email);
+	$merow = $users->fetchRow($me);
+	$email = $merow['email'];
+	$role = Application_Model_Users::getRole($merow['role']);
+?>
+
+<h1>Email: <?php echo $email ?></h1>
+<h1>Role: <?php echo $role ?></h1>
+

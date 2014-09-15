@@ -1,0 +1,30 @@
+<div class="alert alert-info">This is my dashboard page. Only administrators have permissions to view this page.</div>
+
+<hr>
+<table class="table table-bordered">
+<tr><th>#</th>
+<th>email</th>
+<th>role</th>
+<th>actions</th>
+</tr>
+<?php
+	$db = new Application_Model_Users();
+	$users = $db->fetchAll();
+	foreach ($users as $user) {
+?>
+<tr>
+<td><?php echo $user->ID ?></td>
+<td><?php echo $user->email ?></td>
+<td><?php echo Application_Model_Users::getRole($user->role) ?></td>
+<td><a href="/pages/edituser?i=<?php echo $user->ID ?>">edit</a></td>
+</tr>
+<?php
+
+
+	}
+?>
+</table>
+
+<h2><div class="label label-success"><?php echo $this->role ?>-</div></h2>
+
+

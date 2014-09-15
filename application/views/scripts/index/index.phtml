@@ -1,0 +1,21 @@
+<?php if(!Zend_Auth::getInstance()->hasIdentity()) {?>
+<div class="jumbotron">
+    <h1>Xauth</h1>
+    <p>Test application, special for MagneticOne</p>
+    <div class="text-right">
+        <a class="btn btn-lg btn-primary" href="authentification/login">Login</a>
+        <a class="btn btn-lg btn-primary" href="authentification/register">Register</a>
+    </div>
+</div>
+
+<?php } else { ?>
+<div class="text-center">
+    <h1>Pages</h1>
+    <ul style="list-style:none">
+        <li><a href="pages/dashboard">Dashboard(only for admins)</a></li>
+        <li><a href="pages/feedbacks">Feedbacks views(only for moderators)</a></li>
+        <li><a href="pages/account">Account page(only for owners)</a></li>
+        <li><a href="pages/feedback">Send feedback</a></li>
+    </ul>
+</div>
+<?php } ?>

@@ -1,0 +1,25 @@
+<div class="alert alert-info">This is feedbacks page. Only moderators have permissions to view this page.</div>
+
+<hr>
+
+<table class="table table-bordered">
+<tr><th>User email</th>
+<th>theme</th>
+<th>message</th>
+</tr>
+<?php
+	$db = new Application_Model_Feedbacks();
+	$feedbacks = $db->fetchAll();
+	foreach ($feedbacks as $feedback) {
+?>
+<tr>
+<td><?php echo $feedback->user_email ?></td>
+<td><?php echo $feedback->theme ?></td>
+<td><?php echo $feedback->message ?></td>
+</tr>
+<?php
+
+
+	}
+?>
+</table>

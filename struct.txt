@@ -1,0 +1,15 @@
+CREATE table users (
+	ID int NOT NULL AUTO_INCREMENT,
+	email varchar(50) NOT NULL,
+	password varchar(50) NOT NULL,
+	role TINYINT,
+	PRIMARY KEY (ID)
+);
+
+CREATE TABLE feedbacks (
+	ID INT NOT NULL AUTO_INCREMENT,
+	theme varchar(120),
+	message text NOT NULL,
+	user_email varchar(50) NOT NULL,
+	PRIMARY KEY(ID)
+);
